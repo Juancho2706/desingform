@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test de envío — Formulario</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a1f44 0%, #11305f 100%);
+      color: #1a2332;
+    }
+    .card {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(10, 31, 68, 0.25);
+      padding: 32px 28px;
+    }
+    h1 { font-size: 1.3rem; margin: 0 0 6px; color: #0a1f44; }
+    p.sub { margin: 0 0 22px; color: #64748b; font-size: 0.92rem; }
+    label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #dce3ec;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+    }
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 13px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    button:disabled { opacity: 0.7; cursor: not-allowed; }
+    .msg { margin-top: 16px; font-size: 0.9rem; padding: 12px 14px; border-radius: 10px; display: none; }
+    .msg.ok { display: block; background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+    .msg.err { display: block; background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    a.back { display: inline-block; margin-top: 18px; color: #64748b; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧪 Test de envío</h1>
+    <p class="sub">Escribe cualquier cosa y envía para comprobar que el correo llega.</p>
+
+    <form id="testForm">
+      <input type="hidden" name="access_key" value="11aa802f-81ee-4cd4-90ea-7e27ccbe42a5" />
+      <input type="hidden" name="subject" value="🧪 PRUEBA de envío (testform)" />
+      <input type="hidden" name="from_name" value="Test Form" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <label for="mensaje">Mensaje de prueba</label>
+      <input id="mensaje" name="Mensaje de prueba" type="text" placeholder="Ej: hola, esto es una prueba" required />
+
+      <button type="submit" id="btn">Enviar prueba</button>
+    </form>
+
+    <div id="msg" class="msg"></div>
+    <a class="back" href="../index.html">← Volver al formulario completo</a>
+  </div>
+
+  <script>
+    const form = document.getElementById("testForm");
+    const btn = document.getElementById("btn");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.className = "msg";
+      btn.disabled = true;
+      btn.textContent = "Enviando...";
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      delete data.botcheck;
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        if (res.ok && result.success) {
+          msg.className = "msg ok";
+          msg.textContent = "✅ ¡Enviado! Revisa tu correo (mira también en spam el primer envío).";
+          form.reset();
+        } else {
+          throw new Error(result.message || "Error desconocido");
+        }
+      } catch (err) {
+        msg.className = "msg err";
+        msg.textContent = "❌ No se pudo enviar: " + err.message;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Enviar prueba";
+      }
+    });
+  </script>
+</body>
+</html>
