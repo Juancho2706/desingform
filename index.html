@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Brief de diseño web — cuéntanos sobre tu proyecto para diseñar la web ideal para tu empresa." />
+  <title>Brief de Diseño Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Encabezado ===== -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Brief de proyecto web</p>
+      <h1 class="hero__title">Cuéntanos cómo imaginas tu nueva web</h1>
+      <p class="hero__subtitle">
+        Este formulario nos ayuda a entender a fondo tu empresa, tus objetivos y tu estilo
+        para diseñar una página web a la medida. No te preocupes si no tienes todas las
+        respuestas: completa lo que puedas con la mayor claridad posible.
+      </p>
+      <p class="hero__time">⏱️ Tiempo estimado: 7–10 minutos</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="briefForm" class="form" novalidate>
+      <!-- Campos especiales de Web3Forms -->
+      <!-- 👉 IMPORTANTE: reemplaza el valor de abajo por TU access key de https://web3forms.com -->
+      <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+      <input type="hidden" name="subject" value="Nuevo brief de diseño web 🎨" />
+      <input type="hidden" name="from_name" value="Formulario Brief Web" />
+      <!-- Honeypot anti-spam: debe quedar vacío -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <!-- ===== Sección 1: Datos de contacto ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">1</span>
+          <div>
+            <h2 class="section__title">Datos de contacto</h2>
+            <p class="section__desc">Para saber con quién hablamos y poder responderte.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="nombre">Nombre y apellido <span class="req">*</span></label>
+            <input id="nombre" name="Nombre de contacto" type="text" placeholder="Ej: María Pérez" required />
+          </div>
+          <div class="field">
+            <label for="cargo">Cargo en la empresa</label>
+            <input id="cargo" name="Cargo" type="text" placeholder="Ej: Recursos Humanos" />
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa / Institución <span class="req">*</span></label>
+            <input id="empresa" name="Empresa" type="text" placeholder="Ej: INEPCAP" required />
+          </div>
+          <div class="field">
+            <label for="email">Correo electrónico <span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="nombre@empresa.cl" required />
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input id="telefono" name="Telefono" type="tel" placeholder="+56 9 1234 5678" />
+          </div>
+          <div class="field">
+            <label for="web">Sitio web actual (si tienen)</label>
+            <input id="web" name="Sitio web actual" type="text" placeholder="https://www.tuempresa.cl" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Sección 2: Sobre la empresa ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">2</span>
+          <div>
+            <h2 class="section__title">Sobre la empresa</h2>
+            <p class="section__desc">Queremos entender a qué se dedican y a quién quieren llegar.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="rubro">¿A qué se dedica la empresa? <span class="req">*</span></label>
+          <textarea id="rubro" name="A que se dedica" rows="3" placeholder="Describe brevemente los servicios o productos principales." required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="publico">¿Quién es su público objetivo?</label>
+          <textarea id="publico" name="Publico objetivo" rows="2" placeholder="Ej: empresas que necesitan guardias, personas que buscan capacitarse en seguridad, etc."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="diferencia">¿Qué los diferencia de la competencia?</label>
+          <textarea id="diferencia" name="Diferencia con la competencia" rows="2" placeholder="¿Por qué un cliente debería elegirlos a ustedes?"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="competencia">¿Hay webs de la competencia (o de su rubro) que les gusten?</label>
+          <textarea id="competencia" name="Webs de competencia que gustan" rows="2" placeholder="Pega los enlaces y, si quieres, qué les gusta de cada una."></textarea>
+        </div>
+      </section>
+
+      <!-- ===== Sección 3: La web actual ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">3</span>
+          <div>
+            <h2 class="section__title">Tu web actual</h2>
+            <p class="section__desc">Si ya tienen una página, esto nos ayuda a saber qué mejorar.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="molesta">¿Qué es lo que MÁS te molesta o no funciona de tu web actual?</label>
+          <textarea id="molesta" name="Que molesta de la web actual" rows="2" placeholder="Ej: se ve antigua, no se ve bien en el celular, es difícil de actualizar, etc."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="rescatar">¿Hay algo de la web actual que SÍ quieran conservar?</label>
+          <textarea id="rescatar" name="Que conservar de la web actual" rows="2" placeholder="Ej: los colores, cierto texto, secciones, etc."></textarea>
+        </div>
+      </section>
+
+      <!-- ===== Sección 4: Objetivos ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">4</span>
+          <div>
+            <h2 class="section__title">Objetivos de la nueva web</h2>
+            <p class="section__desc">¿Para qué quieren la web? Marca todo lo que aplique.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">¿Cuál es el objetivo principal?</span>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="Objetivos" value="Dar a conocer la empresa (imagen / presencia)" /> <span>Dar a conocer la empresa</span></label>
+            <label class="check"><input type="checkbox" name="Objetivos" value="Captar clientes nuevos" /> <span>Captar clientes nuevos</span></label>
+            <label class="check"><input type="checkbox" name="Objetivos" value="Captar alumnos para cursos" /> <span>Captar alumnos para cursos</span></label>
+            <label class="check"><input type="checkbox" name="Objetivos" value="Recibir solicitudes de contacto / cotización" /> <span>Recibir contacto / cotizaciones</span></label>
+            <label class="check"><input type="checkbox" name="Objetivos" value="Mostrar servicios o cursos" /> <span>Mostrar servicios o cursos</span></label>
+            <label class="check"><input type="checkbox" name="Objetivos" value="Generar confianza / profesionalismo" /> <span>Generar confianza y prestigio</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="accion">¿Qué acción principal quieren que haga el visitante?</label>
+          <input id="accion" name="Accion deseada del visitante" type="text" placeholder="Ej: que llame, que llene el formulario, que se inscriba a un curso..." />
+        </div>
+      </section>
+
+      <!-- ===== Sección 5: Secciones y funcionalidades ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">5</span>
+          <div>
+            <h2 class="section__title">Secciones y funcionalidades</h2>
+            <p class="section__desc">¿Qué debe tener la web? Marca lo que necesiten.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">Páginas o secciones</span>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="Secciones" value="Inicio" /> <span>Inicio</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Quiénes somos / Nosotros" /> <span>Quiénes somos</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Servicios" /> <span>Servicios</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Cursos / Capacitaciones" /> <span>Cursos / Capacitaciones</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Galería de fotos" /> <span>Galería de fotos</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Blog / Noticias" /> <span>Blog / Noticias</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Testimonios" /> <span>Testimonios</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Preguntas frecuentes" /> <span>Preguntas frecuentes</span></label>
+            <label class="check"><input type="checkbox" name="Secciones" value="Contacto" /> <span>Contacto</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">Funcionalidades especiales</span>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Formulario de contacto" /> <span>Formulario de contacto</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Inscripción a cursos en línea" /> <span>Inscripción a cursos</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Botón / chat de WhatsApp" /> <span>Chat de WhatsApp</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Mapa de ubicación" /> <span>Mapa de ubicación</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Integración con redes sociales" /> <span>Redes sociales</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Área de alumnos / login" /> <span>Área de alumnos (login)</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Pago en línea" /> <span>Pago en línea</span></label>
+            <label class="check"><input type="checkbox" name="Funcionalidades" value="Sitio en varios idiomas" /> <span>Varios idiomas</span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Sección 6: Diseño e identidad ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">6</span>
+          <div>
+            <h2 class="section__title">Diseño e identidad visual</h2>
+            <p class="section__desc">El estilo y la "personalidad" que debe transmitir la web.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="estilo">Estilo deseado</label>
+            <select id="estilo" name="Estilo deseado">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Moderno y minimalista</option>
+              <option>Corporativo y serio</option>
+              <option>Profesional con autoridad (seguridad)</option>
+              <option>Cercano y amigable</option>
+              <option>Elegante / premium</option>
+              <option>Aún no lo tengo claro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="colores">Colores corporativos</label>
+            <input id="colores" name="Colores corporativos" type="text" placeholder="Ej: azul marino, gris, dorado..." />
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">¿Tienen estos materiales de marca?</span>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="Materiales de marca" value="Logo en buena calidad" /> <span>Logo en buena calidad</span></label>
+            <label class="check"><input type="checkbox" name="Materiales de marca" value="Manual de marca" /> <span>Manual de marca</span></label>
+            <label class="check"><input type="checkbox" name="Materiales de marca" value="Fotos profesionales" /> <span>Fotos profesionales</span></label>
+            <label class="check"><input type="checkbox" name="Materiales de marca" value="Videos" /> <span>Videos</span></label>
+            <label class="check"><input type="checkbox" name="Materiales de marca" value="No tenemos, necesitamos ayuda" /> <span>No tenemos / necesito ayuda</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="referencias">Webs que te gusten (de cualquier rubro) y por qué</label>
+          <textarea id="referencias" name="Webs de referencia" rows="3" placeholder="Pega 2 o 3 enlaces y dinos qué te gusta de cada una (colores, orden, fotos, etc.)."></textarea>
+        </div>
+      </section>
+
+      <!-- ===== Sección 7: Contenido ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">7</span>
+          <div>
+            <h2 class="section__title">Contenido</h2>
+            <p class="section__desc">¿Quién entrega los textos y las imágenes?</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="textos">¿Quién entrega los textos?</label>
+            <select id="textos" name="Quien entrega los textos">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Nosotros entregamos los textos</option>
+              <option>Tenemos parte, necesitamos ayuda con el resto</option>
+              <option>Necesitamos que ustedes los redacten</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fotos">¿Quién entrega las fotos?</label>
+            <select id="fotos" name="Quien entrega las fotos">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Nosotros entregamos las fotos</option>
+              <option>Tenemos algunas, faltan más</option>
+              <option>Necesitamos fotos / banco de imágenes</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Sección 8: Presupuesto y plazos ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">8</span>
+          <div>
+            <h2 class="section__title">Presupuesto y plazos</h2>
+            <p class="section__desc">Esto nos ayuda a proponerte algo realista. Es referencial.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="presupuesto">Presupuesto aproximado</label>
+            <select id="presupuesto" name="Presupuesto aproximado">
+              <option value="" disabled selected>Selecciona un rango</option>
+              <option>Menos de $300.000 CLP</option>
+              <option>$300.000 – $600.000 CLP</option>
+              <option>$600.000 – $1.000.000 CLP</option>
+              <option>$1.000.000 – $2.000.000 CLP</option>
+              <option>Más de $2.000.000 CLP</option>
+              <option>Aún no lo tengo definido</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="plazo">¿Para cuándo necesitan la web lista?</label>
+            <input id="plazo" name="Plazo deseado" type="text" placeholder="Ej: en 1 mes, antes de marzo, sin apuro..." />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="hosting">¿Tienen dominio y hosting contratados?</label>
+          <select id="hosting" name="Dominio y hosting">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option>Sí, tenemos dominio y hosting</option>
+            <option>Tenemos solo el dominio</option>
+            <option>No tenemos, necesitamos ayuda</option>
+            <option>No sé qué es eso</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- ===== Sección 9: Comentarios ===== -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">9</span>
+          <div>
+            <h2 class="section__title">Algo más</h2>
+            <p class="section__desc">Cualquier idea, duda o detalle que quieras agregar.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="comentarios">Comentarios adicionales</label>
+          <textarea id="comentarios" name="Comentarios adicionales" rows="3" placeholder="Escríbelo aquí, todo suma 🙂"></textarea>
+        </div>
+      </section>
+
+      <!-- ===== Acciones ===== -->
+      <div class="form__footer">
+        <p id="formError" class="form__error" role="alert" hidden></p>
+        <button type="submit" class="btn" id="submitBtn">
+          <span class="btn__text">Enviar formulario</span>
+          <span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form__note">Al enviar, las respuestas llegan directo a nuestro correo. No compartimos tus datos.</p>
+      </div>
+    </form>
+
+    <!-- ===== Pantalla de éxito ===== -->
+    <div id="successPanel" class="success" hidden>
+      <div class="success__icon">✓</div>
+      <h2 class="success__title">¡Gracias! Recibimos tu brief 🎉</h2>
+      <p class="success__text">
+        Revisaremos tus respuestas con calma y te contactaremos a la brevedad para dar el
+        siguiente paso. Si necesitas agregar algo, escríbenos cuando quieras.
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Diseño y desarrollo web · <span id="year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
